@@ -1,0 +1,6 @@
+{
+  "name": "Trading Strategy Ingestion Pipeline",
+  "description": "Pipeline for ingesting strategy YouTube videos, extracting structured tactical rules with Gemini, and persisting structured strategy records.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
