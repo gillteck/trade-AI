@@ -141,7 +141,13 @@ class YouTubeIngestionService:
             data_blocks = transcript_obj.fetch()
             
             # whitespace normalize the full transcript text
-            full_text = " ".join([block.get("text", "").strip() for block in data_blocks])
+            text_slices = []
+            for block in data_blocks:
+                if isinstance(block, dict):
+                    text_slices.append(block.get("text", "").strip())
+                else:
+                    text_slices.append(getattr(block, "text", "").strip())
+            full_text = " ".join(text_slices)
             normalized_text = " ".join(full_text.split())
             
             return VideoTranscript(
